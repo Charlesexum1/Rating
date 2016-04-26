@@ -28,6 +28,22 @@ public class Rating {
 	private int maxRating = 10;
 	private int rating;
 	
+	public Rating(){ // default constructor
+		itemRated = "unrated thingy.";
+		rating = 0;
+		}
+	
+	public Rating(String newDescription, int newUserRating){
+		itemRated = newDescription;
+		if (newUserRating > maxRating || newUserRating < 0) {
+			System.out.println("Cannot exceed 10; must be non negative.");
+			System.exit(0);
+			}
+		else {
+			rating = newUserRating;
+			}
+		}
+	
 	private int getMaxRating(){
 		return maxRating;
 		}
@@ -56,6 +72,9 @@ public class Rating {
 		demo.setItemRated("Cloud Atlas");
 		demo.setRating(3);
 		demo.getFormattedRating();
+		
+		Rating SWIV = new Rating("Star Wars Episode IV", 10);
+		SWIV.getFormattedRating();
 		
 	}
 }
